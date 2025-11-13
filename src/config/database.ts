@@ -1,9 +1,10 @@
-import { PrismaClient } from "../generated/prisma"
+import { PrismaClient } from '@prisma/client';
 
-const prisma = new PrismaClient()
-prisma.$connect().catch((error) => {
-  console.error(error)
-  process.exit(1)
-})
+const prisma = new PrismaClient();
 
-export default prisma
+prisma.$connect().catch((error: unknown) => {
+  console.error('Error al conectar con Prisma:', error);
+  process.exit(1);
+});
+
+export default prisma;
